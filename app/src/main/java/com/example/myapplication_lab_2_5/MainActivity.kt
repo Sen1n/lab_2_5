@@ -9,11 +9,9 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
-        // реєстрація у синглтоні
         UserTracker.register(this)
     }
 
-    // виправлення витоку пам'яті: відписуємося при знищенні екрану
     override fun onDestroy() {
         super.onDestroy()
         UserTracker.unregister(this)
